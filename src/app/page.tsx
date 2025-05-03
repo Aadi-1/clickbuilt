@@ -1,103 +1,264 @@
+"use client";
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import Carousel from "@/components/Carousel";
+import ScrollButton from "@/components/scrollnext";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+  const caseStudies = [
+    {
+      slug: "bark-n-roll-petcare", //  <-- add a slug
+      img: "bnrss.png",
+      title: "Bark n' Roll Petcare",
+      desc: "Helped a family-owned Dog Walking business improve their online presence and traffic through a new website and optimized SEO.",
+      metrics: [
+        { value: "100%", label: "More Traffic" },
+        { value: "77%", label: "More Bookings" },
+      ],
+      testimonial: `"ClickBuild transformed our online presence. We now get consistent orders through our website every day!"`,
+    },
+    // …more case studies here…
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = "smooth";
+  }, []);
+
+  return (
+    <div className="font-sans text-gray-800 overflow-x-hidden">
+      {/* Header */}
+      <main className="w-full">
+        <ScrollButton />
+        {/* Hero Section */}
+        <section className="bg-gradient-to-br from-blue-800 to-blue-500 text-white pt-36 pb-20 text-center">
+          <div className="container mx-auto px-4">
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-5">
+              Transform <span className="text-black">Your Business</span> with{" "}
+              <br /> Digital Marketing That Works
+            </h1>
+            <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
+              Custom websites, sales funnels, and marketing solutions that bring
+              real customers to your door
+            </p>
+            <a
+              href="#contact"
+              className="inline-block bg-orange-600 hover:bg-white hover:text-black text-white font-semibold rounded-full px-8 py-3 transition-colors"
+            >
+              Book Your Free Consultation
+            </a>
+          </div>
+        </section>
+
+        <Carousel />
+
+        {/* Why Choose Us Section */}
+        <section className="py-20 bg-gray-300 bg-gradient-to-br from-blue-800 to-blue-500">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-white mb-3">
+                Why Businesses Choose Us for Digital Growth
+              </h2>
+              <p className="text-white font-semibold">
+                Our custom strategies, data-driven approach, and hands-on
+                support help you achieve results that last.
+              </p>
+            </div>
+
+            {/* Flex wrapper instead of grid */}
+            <div className="flex flex-wrap justify-center gap-8">
+              {[
+                {
+                  icon: "cbcheck.svg",
+                  title: "Custom Solutions",
+                  desc: "We don’t believe in one-size-fits-all. Every strategy is crafted to match your industry, goals, and growth stage.",
+                },
+                {
+                  icon: "cbresults.svg",
+                  title: "Results Driven",
+                  desc: "We focus on delivering measurable outcomes with transparent reporting so you can see your ROI.",
+                },
+                {
+                  icon: "cbhand.svg",
+                  title: "Ongoing Support",
+                  desc: "We don’t disappear after launch. From analytics to optimization, we support your growth every step of the way.",
+                },
+              ].map((feature) => (
+                <div
+                  key={feature.title}
+                  className="text-center p-6 w-80 bg-white rounded-lg shadow-lg"
+                >
+                  <Image
+                    src={`/${feature.icon}`} // from public/
+                    alt={feature.title}
+                    width={60}
+                    height={48}
+                    className="mx-auto mb-4"
+                  />
+                  <h3 className="text-xl font-semibold mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600">{feature.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Results Section */}
+        <section id="testimonials" className="bg-sky-50 py-20 justify-center">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-blue-800 mb-3">
+                Real Results from Real Businesses
+              </h2>
+              <p className="text-gray-700">
+                See how we've helped businesses just like yours
+              </p>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-8">
+              {caseStudies.map((cs) => (
+                <Link
+                  key={cs.slug}
+                  href={`/testimonials`}
+                  className="
+                block
+                bg-white rounded-lg overflow-hidden shadow-lg
+                text-center w-full sm:w-1/2 md:w-1/3
+                hover:shadow-xl transform hover:-translate-y-2
+                transition-transform
+              "
+                >
+                  <div className="h-48 bg-gray-200 flex items-center justify-center">
+                    <img
+                      src={cs.img}
+                      alt={cs.title}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-2">{cs.title}</h3>
+                    <p className="text-gray-600 mb-4">{cs.desc}</p>
+                    <div className="flex space-x-4 mb-4">
+                      {cs.metrics.map((m) => (
+                        <div key={m.label} className="flex-1 text-center">
+                          <div className="text-2xl font-bold text-blue-800">
+                            {m.value}
+                          </div>
+                          <div className="text-gray-500">{m.label}</div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="italic text-gray-700 border-t pt-4">
+                      {cs.testimonial}
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* How It Works Section */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl font-bold text-blue-800 mb-3">
+              How We Work With You
+            </h2>
+            <p className="text-gray-700 mb-8">
+              A simple, effective process focused on your success
+            </p>
+            <div className="relative max-w-4xl mx-auto">
+              <div className="absolute inset-0 flex items-center"></div>
+              <div className="relative flex flex-col md:flex-row justify-between space-y-8 md:space-y-0 md:space-x-4 mt-8">
+                {[
+                  {
+                    number: "1",
+                    title: "Discovery",
+                    desc: "We learn about your business goals and challenges",
+                  },
+                  {
+                    number: "2",
+                    title: "Strategy",
+                    desc: "Develop a custom digital marketing plan",
+                  },
+                  {
+                    number: "3",
+                    title: "Implementation",
+                    desc: "Build your website, SEO, and digital assets",
+                  },
+                  {
+                    number: "4",
+                    title: "Growth",
+                    desc: "Ongoing optimization and support",
+                  },
+                ].map((step) => (
+                  <div
+                    key={step.number}
+                    className="flex-1 text-center relative"
+                  >
+                    <div className="w-12 h-12 bg-blue-800 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-bold">
+                      {step.number}
+                    </div>
+                    <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
+                    <p className="text-gray-600">{step.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section
+          id="contact"
+          className="bg-gradient-to-br from-blue-800 to-blue-500 text-white py-20"
+        >
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Grow Your Business?
+            </h2>
+            <div className="max-w-lg mx-auto space-y-4">
+              <input
+                type="text"
+                placeholder="Your Name"
+                className="w-full p-3 rounded-full text-gray-800 bg-gray-100"
+              />
+              <input
+                type="email"
+                placeholder="Your Email"
+                className="w-full p-3 rounded-full text-gray-800 bg-gray-100"
+              />
+              <input
+                type="text"
+                placeholder="Business Type"
+                className="w-full p-3 rounded-full text-gray-800 bg-gray-100"
+              />
+              <input
+                type="tel"
+                placeholder="Phone Number"
+                className="w-full p-3 rounded-full text-gray-800 bg-gray-100"
+              />
+              <a
+                href="#"
+                className="inline-block bg-orange-600 hover:bg-orange-700 font-semibold rounded-full px-8 py-3 transition-colors"
+              >
+                Start Your Digital Transformation
+              </a>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
