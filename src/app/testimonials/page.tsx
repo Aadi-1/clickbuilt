@@ -18,55 +18,85 @@ export default function testimonial() {
         <div className="container mx-auto px-4">
           <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col gap-6">
             {/* Title */}
-            <h2 className="text-2xl md:text-3xl font-bold text-blue-800 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-700 text-center underline underline-offset-8 decoration-orange-400">
               Bark n’ Roll Petcare
             </h2>
 
             {/* Center Section */}
-            <div className="space-y-8 text-gray-700 text-md leading-relaxed">
+            <div className="space-y-8 text-gray-800 text-md leading-relaxed">
               {/* Overview */}
               <div>
-                <h3 className="text-xl font-semibold text-grey-800 mb-2">
-                  Overview
+                <h3 className="text-xl font-semibold text-blue-700 mb-2">
+                  Overview:
                 </h3>
-                <p>
-                  Bark n’ Roll Petcare came to me looking for a way to automate
-                  growth and free up the owner’s time. I delivered a fully
-                  responsive Next.js site with a built-in booking form,
-                  integrated email notifications, and a polished client
-                  experience from the very first click.
+                <p className="text-lg">
+                  Bark n’ Roll Petcare came to us looking for a way to establish
+                  digital presence, automate bookings and free up the owner’s
+                  time.
                 </p>
               </div>
 
               {/* Challenge Sections Reformatted into Paragraphs with Bold Inline Headings */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  Challenges & Solutions
+                <h3 className="text-xl font-semibold text-blue-700 mb-2">
+                  How We Helped:
                 </h3>
                 <p className="mb-4">
-                  <strong>Responsive Website & Booking System:</strong> <br />I
-                  designed and developed a device-responsive website that
-                  highlights Bark n’ Roll’s services, team, and personality. The
-                  “Book a Consultation” form is seamlessly tied to an email
-                  service so every inquiry arrives in the owner’s inbox
-                  instantly—no manual follow-up required.
+                  <strong>Responsive Website w/ Booking System:</strong> <br />
+                  <ul>
+                    <li>
+                      {" "}
+                      <span className="text-blue-500 mr-2">→</span>
+                      Developed a fast website that highlights Bark n’ Roll’s
+                      services, team, and personality.
+                    </li>
+                    <li>
+                      <span className="text-blue-500 mr-2">→</span>
+                      Created a “Book a Consultation” form that sends customer
+                      information to the owner’s inbox instantly— no manual
+                      follow-up required.
+                    </li>
+                  </ul>
                 </p>
                 <p className="mb-4">
-                  <strong>Owner Empowerment & Package Strategy:</strong> <br />
-                  We reimagined his service tiers, introducing larger bundle
-                  packages and upsell paths that encourage clients to commit
-                  long-term. I guided him through stepping out of day-to-day
-                  walks, setting himself up as the business owner who oversees
-                  quality and growth rather than handles every appointment.
+                  <strong>Owner Empowerment:</strong> <br />
+                  <ul>
+                    <li>
+                      <span className="text-blue-500 mr-2">→</span>
+                      Made a plan for the owner, setting himself up as the
+                      business owner who handles the business not every
+                      appointment.
+                    </li>
+                    <li>
+                      {" "}
+                      <span className="text-blue-500 mr-2">→</span>
+                      Provided hands-on support in the recruitment process,
+                      including interview prep and candidate evaluation to help
+                      build a reliable team.
+                    </li>
+                  </ul>
                 </p>
                 <p>
                   <strong>VIP Client Retention & Marketing Campaigns:</strong>{" "}
-                  <br />
-                  After analyzing purchase history, I identified Bark n’ Roll’s
-                  top-spending clients and crafted a VIP program—exclusive
-                  offers, priority scheduling, and personalized outreach—to
-                  boost loyalty. Meanwhile, I ran Google Ads funnels to win back
-                  inactive customers and attract new ones into premium plans.
+                  <ul>
+                    <li>
+                      <span className="text-blue-500 mr-2">→</span>
+                      Identified Bark n’ Roll’s top-spending clients and created
+                      a VIP program w/ exclusive offers, priority scheduling,
+                      and personalized outreach.
+                    </li>
+                    <li>
+                      <span className="text-blue-500 mr-2">→</span>
+                      Our team implemented package deals and a referral system
+                      for clients to commit long-term.
+                    </li>
+                    <li>
+                      {" "}
+                      <span className="text-blue-500 mr-2">→</span>
+                      Executed targeted Google Ads campaigns designed to bring
+                      in new clients efficiently while maximizing ad spend ROI.
+                    </li>
+                  </ul>
                 </p>
               </div>
             </div>
@@ -92,12 +122,32 @@ export default function testimonial() {
                     without me."
                   </p>
                   <p className="text-blue-800 font-semibold">
-                    — Bark n’ Roll Petcare
+                    — Jason from Bark n’ Roll Petcare
                   </p>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section
+        id="contact"
+        className="py-20 bg-gradient-to-br from-blue-800 to-blue-500 text-white text-center"
+      >
+        <div className="container mx-auto px-4">
+          <h3 className="text-3xl font-bold mb-4">Ready to Get Started?</h3>
+          <p className="mb-6">
+            Book your free consultation and let’s craft your winning strategy.
+          </p>
+          <Link
+            href="/#contact"
+            className="inline-block bg-orange-600 hover:bg-white hover:text-black
+                     text-white font-semibold rounded-full px-8 py-3 transition-colors"
+          >
+            Contact Us
+          </Link>
         </div>
       </section>
     </main>

@@ -43,8 +43,8 @@ export default function RootLayout({
                 Click<span className="text-blue-500">Built</span>
               </div>
               <p className="text-gray-400 mb-4">
-                Digital marketing solutions tailored for small businesses
-                looking to grow and thrive online.
+                Digital marketing solutions for business looking to grow and
+                thrive online.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center">

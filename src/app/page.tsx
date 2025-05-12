@@ -14,7 +14,7 @@ export default function Home() {
       slug: "bark-n-roll-petcare", //  <-- add a slug
       img: "bnrss.png",
       title: "Bark n' Roll Petcare",
-      desc: "Helped a family-owned Dog Walking business improve their online presence and traffic through a new website and optimized SEO.",
+      desc: "Helped a family-owned Dog Walking business improve their online presence and traffic through a Responsive Website, Efficient SEO, and Google Advertising",
       metrics: [
         { value: "100%", label: "More Traffic" },
         { value: "77%", label: "More Bookings" },
@@ -43,18 +43,21 @@ export default function Home() {
         <section className="bg-gradient-to-br from-blue-800 to-blue-500 text-white pt-36 pb-20 text-center">
           <div className="container mx-auto px-4">
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-5">
-              Transform <span className="text-black">Your Business</span> with{" "}
-              <br /> Digital Marketing That Works
+              <span className="underline underline-offset-10 decoration-orange-600">
+                Stop Losing Customers
+              </span>{" "}
+              <br />
+              to Competitors Who Market Better.
             </h1>
             <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
-              Custom websites, sales funnels, and marketing solutions that bring
-              real customers to your door
+              We help you take control of your online market with
+              high-converting websites and growth-focused campaigns.
             </p>
             <a
               href="#contact"
               className="inline-block bg-orange-600 hover:bg-white hover:text-black text-white font-semibold rounded-full px-8 py-3 transition-colors"
             >
-              Book Your Free Consultation
+              Take Back Your Market
             </a>
           </div>
         </section>
@@ -65,12 +68,11 @@ export default function Home() {
         <section className="py-20 bg-gray-300 bg-gradient-to-br from-blue-800 to-blue-500">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-white mb-3">
-                Why Businesses Choose Us for Digital Growth
+              <h2 className="text-3xl font-bold text-white mb-3 underline underline-offset-8 decoration-orange-600">
+                Why Businesses Choose Us
               </h2>
               <p className="text-white font-semibold">
-                Our custom strategies, data-driven approach, and hands-on
-                support help you achieve results that last.
+                Yes, we might be small, but we leave a HUGE impact
               </p>
             </div>
 
@@ -80,12 +82,12 @@ export default function Home() {
                 {
                   icon: "cbcheck.svg",
                   title: "Custom Solutions",
-                  desc: "We don’t believe in one-size-fits-all. Every strategy is crafted to match your industry, goals, and growth stage.",
+                  desc: "Every strategy is crafted to match your industry, goals, and growth stage.",
                 },
                 {
                   icon: "cbresults.svg",
                   title: "Results Driven",
-                  desc: "We focus on delivering measurable outcomes with transparent reporting so you can see your ROI.",
+                  desc: "We focus on delivering the best products with in detail reporting so you can see how your $$$ is invested.",
                 },
                 {
                   icon: "cbhand.svg",
@@ -111,6 +113,21 @@ export default function Home() {
                 </div>
               ))}
             </div>
+          </div>
+          <div className="flex justify-center mt-6">
+            <a
+              href="/services"
+              className="
+      inline-block 
+      bg-orange-600 hover:bg-orange-700 
+      text-white text-sm font-semibold 
+      rounded-full 
+      px-4 py-2 
+      transition-colors
+    "
+            >
+              Learn More
+            </a>
           </div>
         </section>
 

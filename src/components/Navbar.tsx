@@ -9,7 +9,7 @@ export default function Navbar() {
 
   return (
     <header className="bg-white shadow-md  w-full z-50">
-      <nav className="flex items-center justify-between max-w-screen-xl mx-auto">
+      <nav className="flex items-center justify-between max-w-screen-xl mx-auto px-4">
         {/* Logo (hidden on mobile) */}
         <a href="/" className="hidden md:block">
           <Image
@@ -23,7 +23,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex gap-6 text-lg font-medium">
+        <div className="hidden md:flex items-center gap-8 text-lg font-medium">
           <a href="/" className="hover:text-blue-600">
             Home
           </a>
@@ -33,11 +33,22 @@ export default function Navbar() {
           <a href="/testimonials" className="hover:text-blue-600">
             Testimonials
           </a>
-          <a href="/about" className="hover:text-blue-600">
-            About
+          <a href="/examples" className="hover:text-blue-600">
+            Website Examples
           </a>
-          <a href="/#contact" className="hover:text-blue-600">
-            Contact
+
+          {/* Styled “Contact” pill */}
+          <a
+            href="/#contact"
+            className="
+              bg-orange-600 hover:bg-orange-700
+              text-white text-md font-semibold
+              rounded-full
+              px-4 py-2
+              transition-colors
+            "
+          >
+            Book Now!
           </a>
         </div>
 
@@ -117,9 +128,9 @@ export default function Navbar() {
           <a
             href="/#contact"
             onClick={() => setMenuOpen(false)}
-            className="block hover:text-blue-600"
+            className=" inline-block bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-full px-4 py-2 transition-colors"
           >
-            Contact
+            Book Now
           </a>
         </div>
       )}

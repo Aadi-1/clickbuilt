@@ -31,20 +31,19 @@ export default function services() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:flex md:items-center md:space-x-12">
           <div className="md:w-1/2 mb-8 md:mb-0">
-            <h2 className="text-3xl font-semibold text-blue-800 mb-2">
-              Why Web Presence Is Important
+            <h2 className="text-4xl font-semibold text-blue-800 mb-2">
+              Bad Website = Losing Potential Customers
             </h2>
             {/* Underline */}
-            <div className="h-1 w-50 mb-4 bg-orange-400 rounded-lg"></div>
-            <p className="text-gray-700 mb-4">
-              In today’s digital world, your website is often the first
-              touchpoint between you and potential customers. A professional,
-              fast, and mobile-friendly site:
+            <div className="h-1 w-50 mb-4 bg-orange-400 rounded-lg "></div>
+            <p className="text-gray-700 mb-2 text-xl">
+              Your website is the first impression for your potential customers.{" "}
+              <br />A professional, fast, and mobile-friendly website:
             </p>
-            <ul className=" list-inside space-y-2 text-gray-700">
+            <ul className=" list-inside space-y-2 text-gray-700 text-lg">
               <li>
                 <span className="text-blue-500 mr-2">→</span>Builds credibility
-                & trust instantly
+                & trust
               </li>
               <li>
                 <span className="text-blue-500 mr-2">→</span>Works 24/7 as your
@@ -76,17 +75,17 @@ export default function services() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 md:flex md:items-center md:flex-row-reverse md:space-x-12">
           <div className="md:w-1/2 mb-8 md:mb-0">
-            <h2 className="text-3xl font-semibold text-blue-800 mb-2">
+            <h2 className="text-4xl font-semibold text-blue-800 mb-2">
               What Is SEO?
             </h2>
             {/* Underline */}
             <div className="h-1 w-25 mb-4 bg-orange-400 rounded-lg"></div>
-            <p className="text-gray-700 mb-4">
-              SEO (Search Engine Optimization) is the practice of improving your
-              website so it ranks higher in Google and brings in free, organic
-              traffic. We can optimize by:
+            <p className="text-gray-700 mb-4 text-xl">
+              SEO (Search Engine Optimization) is improving your website so it
+              ranks higher in Google which brings in FREE traffic. <br />
+              We can optimize by:
             </p>
-            <ul className="list-inside space-y-2 text-gray-700">
+            <ul className="list-inside space-y-2 text-gray-700 text-lg">
               <li>
                 <span className="text-blue-500 mr-2">→</span>Keyword research to
                 find what prospects search for
@@ -107,10 +106,11 @@ export default function services() {
           </div>
           <div className="md:w-1/2 flex justify-center">
             <Image
-              src="/seo-illustration.svg"
+              src="/seo.png"
               alt="SEO Illustration"
               width={400}
               height={300}
+              className="rounded-lg shadow-lg"
             />
           </div>
         </div>
@@ -120,20 +120,20 @@ export default function services() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:flex md:items-center md:space-x-12">
           <div className="md:w-1/2 mb-8 md:mb-0">
-            <h2 className="text-3xl font-semibold text-blue-800 mb-2">
-              How Advertising Can Improve Your Business
+            <h2 className="text-4xl font-semibold text-blue-800 mb-2">
+              Why You Need Advertising
             </h2>
             {/* Underline */}
             <div className="h-1 w-50 mb-4 bg-orange-400 rounded-lg"></div>
-            <p className="text-gray-700 mb-4">
+            <p className="text-gray-700 mb-4 text-xl">
               Google and Social Media Ads puts your brand in front of
-              ready-to-buy customers at the exact moment they’re searching. You
-              get:
+              ready-to-buy customers at the exact moment they’re searching.
+              <br /> You get:
             </p>
-            <ul className="space-y-2 text-gray-700">
+            <ul className="space-y-2 text-gray-700 text-lg">
               <li className="flex items-start">
                 <span className="text-blue-500 mr-2">→</span>
-                Instant visibility at the top of search results
+                Priority visibility at the top of search results
               </li>
               <li className="flex items-start">
                 <span className="text-blue-500 mr-2">→</span>
