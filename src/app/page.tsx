@@ -4,10 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import Carousel from "@/components/Carousel";
 import ScrollButton from "@/components/scrollnext";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const caseStudies = [
     {
@@ -33,6 +36,20 @@ export default function Home() {
   useEffect(() => {
     document.documentElement.style.scrollBehavior = "smooth";
   }, []);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    const form = new FormData(e.currentTarget);
+    const res = await fetch("/api/contact", { method: "POST", body: form });
+    setLoading(false);
+    if (res.ok) {
+      alert("Thanks! We’ll be in touch soon.");
+      router.refresh();
+    } else {
+      alert("Oops, something went wrong.");
+    }
+  };
 
   return (
     <div className="font-sans text-gray-800 overflow-x-hidden">
@@ -245,34 +262,105 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Ready to Grow Your Business?
             </h2>
-            <div className="max-w-lg mx-auto space-y-4">
+            <form
+              onSubmit={handleSubmit}
+              className="max-w-lg mx-auto space-y-4 text-gray-800"
+              encType="multipart/form-data"
+            >
+              <div className="flex space-x-4">
+                <input
+                  name="firstName"
+                  type="text"
+                  placeholder="First Name"
+                  required
+                  className="flex-1 p-3 rounded-full bg-gray-100"
+                />
+                <input
+                  name="lastName"
+                  type="text"
+                  placeholder="Last Name"
+                  required
+                  className="flex-1 p-3 rounded-full bg-gray-100"
+                />
+              </div>
+
               <input
-                type="text"
-                placeholder="Your Name"
-                className="w-full p-3 rounded-full text-gray-800 bg-gray-100"
-              />
-              <input
+                name="email"
                 type="email"
                 placeholder="Your Email"
-                className="w-full p-3 rounded-full text-gray-800 bg-gray-100"
+                required
+                className="w-full p-3 rounded-full bg-gray-100"
               />
+
               <input
+                name="businessName"
                 type="text"
-                placeholder="Business Type"
-                className="w-full p-3 rounded-full text-gray-800 bg-gray-100"
+                placeholder="Business Name"
+                className="w-full p-3 rounded-full bg-gray-100"
               />
+
+              <div className="flex space-x-4">
+                <select
+                  name="businessType"
+                  required
+                  className="w-full p-3 rounded-full bg-gray-100"
+                >
+                  <option value="">Business Type</option>
+                  <option>Personal Brands</option>
+                  <option>Restaurants/Cafe</option>
+                  <option>Professional Services (Legal, Business)</option>
+                  <option>E-commerce</option>
+                  <option>Service Based Businesses</option>
+                </select>
+              </div>
+
               <input
+                name="phone"
                 type="tel"
                 placeholder="Phone Number"
-                className="w-full p-3 rounded-full text-gray-800 bg-gray-100"
+                className="w-full p-3 rounded-full bg-gray-100"
               />
-              <a
-                href="#"
-                className="inline-block bg-orange-600 hover:bg-orange-700 font-semibold rounded-full px-8 py-3 transition-colors"
+
+              <div className="flex space-x-4">
+                <select
+                  name="budget"
+                  required
+                  className="flex-1 p-3 rounded-full bg-gray-100"
+                >
+                  <option value="">Budget</option>
+                  <option>Under 1k</option>
+                  <option>1-2k</option>
+                  <option>3-4k</option>
+                  <option>5k+</option>
+                </select>
+                <select
+                  name="revenue"
+                  required
+                  className="flex-1 p-3 rounded-full bg-gray-100"
+                >
+                  <option value="">Monthly Revenue</option>
+                  <option>Under 1k</option>
+                  <option>1-5k</option>
+                  <option>5-10k</option>
+                  <option>10k+</option>
+                </select>
+              </div>
+
+              <textarea
+                name="message"
+                rows={3}
+                placeholder="Additional details (optional)"
+                className="w-full p-3 rounded-lg bg-gray-100"
+              />
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="inline-block bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-full px-8 py-3 transition-colors"
               >
-                Start Your Digital Transformation
-              </a>
-            </div>
+                {loading ? "Sending..." : "Start Your Digital Transformation"}
+              </button>
+            </form>
           </div>
         </section>
       </main>

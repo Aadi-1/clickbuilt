@@ -33,8 +33,8 @@ export default function Navbar() {
           <a href="/testimonials" className="hover:text-blue-600">
             Testimonials
           </a>
-          <a href="/examples" className="hover:text-blue-600">
-            Website Examples
+          <a href="/about" className="hover:text-blue-600">
+            About
           </a>
 
           {/* Styled “Contact” pill */}

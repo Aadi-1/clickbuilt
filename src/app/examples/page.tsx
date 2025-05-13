@@ -39,11 +39,11 @@ export default function Examples() {
               <div className="bg-gray-50 rounded-xl shadow-lg overflow-hidden flex flex-col">
                 <div className="h-40 bg-gray-100 flex items-center justify-center">
                   <Image
-                    src="/examples/local-service.png"
+                    src="/lsss1.png"
                     alt="Local Service Providers"
-                    width={240}
-                    height={160}
-                    className="object-contain"
+                    width={300}
+                    height={200}
+                    className="w-full h-full object-cover border-0"
                   />
                 </div>
                 <div className="p-6 flex-1 flex flex-col">
@@ -63,29 +63,31 @@ export default function Examples() {
             </Link>
 
             {/* E‑Commerce / Online Stores */}
-            <div className="bg-gray-50 rounded-xl shadow-lg overflow-hidden flex flex-col">
-              <div className="h-40 bg-gray-100 flex items-center justify-center">
-                <Image
-                  src="/examples/ecommerce.png"
-                  alt="E‑Commerce / Online Stores"
-                  width={240}
-                  height={160}
-                  className="object-contain"
-                />
+            <Link href="/clothing">
+              <div className="bg-gray-50 rounded-xl shadow-lg overflow-hidden flex flex-col">
+                <div className="h-40 bg-gray-100 flex items-center justify-center">
+                  <Image
+                    src="/examples/ecommerce.png"
+                    alt="E‑Commerce / Online Stores"
+                    width={240}
+                    height={160}
+                    className="object-contain"
+                  />
+                </div>
+                <div className="p-6 flex-1 flex flex-col">
+                  <h3 className="text-2xl font-semibold text-blue-800 mb-1">
+                    E‑Commerce / Online Stores
+                  </h3>
+                  <div className="h-1 w-16 mb-4 bg-orange-400 rounded-lg" />
+                  <p className="text-gray-700 italic mb-4">
+                    Clothing Brands, Wellness Products, Specialty Foods
+                  </p>
+                  <p className="text-gray-600 flex-1">
+                    Fast, secure online stores built to sell your products 24/7.
+                  </p>
+                </div>
               </div>
-              <div className="p-6 flex-1 flex flex-col">
-                <h3 className="text-2xl font-semibold text-blue-800 mb-1">
-                  E‑Commerce / Online Stores
-                </h3>
-                <div className="h-1 w-16 mb-4 bg-orange-400 rounded-lg" />
-                <p className="text-gray-700 italic mb-4">
-                  Clothing Brands, Wellness Products, Specialty Foods
-                </p>
-                <p className="text-gray-600 flex-1">
-                  Fast, secure online stores built to sell your products 24/7.
-                </p>
-              </div>
-            </div>
+            </Link>
 
             {/* Professional Services */}
             <div className="bg-gray-50 rounded-xl shadow-lg overflow-hidden flex flex-col">

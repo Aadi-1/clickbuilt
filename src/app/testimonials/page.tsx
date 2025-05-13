@@ -36,68 +36,68 @@ export default function testimonial() {
                 </p>
               </div>
 
-              {/* Challenge Sections Reformatted into Paragraphs with Bold Inline Headings */}
+              {/* Challenge Sections Reformatted into Proper Blocks */}
               <div>
-                <h3 className="text-xl font-semibold text-blue-700 mb-2">
+                <h3 className="text-xl font-semibold text-blue-700 mb-4">
                   How We Helped:
                 </h3>
-                <p className="mb-4">
-                  <strong>Responsive Website w/ Booking System:</strong> <br />
-                  <ul>
-                    <li>
-                      {" "}
+
+                <div className="mb-6">
+                  <strong>Responsive Website w/ Booking System:</strong>
+                  <ul className="mt-2 list-inside space-y-2">
+                    <li className="flex items-start">
                       <span className="text-blue-500 mr-2">→</span>
                       Developed a fast website that highlights Bark n’ Roll’s
                       services, team, and personality.
                     </li>
-                    <li>
+                    <li className="flex items-start">
                       <span className="text-blue-500 mr-2">→</span>
                       Created a “Book a Consultation” form that sends customer
-                      information to the owner’s inbox instantly— no manual
+                      information to the owner’s inbox instantly—no manual
                       follow-up required.
                     </li>
                   </ul>
-                </p>
-                <p className="mb-4">
-                  <strong>Owner Empowerment:</strong> <br />
-                  <ul>
-                    <li>
+                </div>
+
+                <div className="mb-6">
+                  <strong>Owner Empowerment:</strong>
+                  <ul className="mt-2 list-inside space-y-2">
+                    <li className="flex items-start">
                       <span className="text-blue-500 mr-2">→</span>
                       Made a plan for the owner, setting himself up as the
-                      business owner who handles the business not every
-                      appointment.
+                      business owner who handles the business (not every
+                      appointment).
                     </li>
-                    <li>
-                      {" "}
+                    <li className="flex items-start">
                       <span className="text-blue-500 mr-2">→</span>
-                      Provided hands-on support in the recruitment process,
-                      including interview prep and candidate evaluation to help
-                      build a reliable team.
+                      Provided hands‑on support in recruiting—including
+                      interview prep and candidate evaluation—to build a
+                      reliable team.
                     </li>
                   </ul>
-                </p>
-                <p>
-                  <strong>VIP Client Retention & Marketing Campaigns:</strong>{" "}
-                  <ul>
-                    <li>
+                </div>
+
+                <div>
+                  <strong>VIP Client Retention & Marketing Campaigns:</strong>
+                  <ul className="mt-2 list-inside space-y-2">
+                    <li className="flex items-start">
                       <span className="text-blue-500 mr-2">→</span>
-                      Identified Bark n’ Roll’s top-spending clients and created
-                      a VIP program w/ exclusive offers, priority scheduling,
+                      Identified Bark n’ Roll’s top‑spending clients and created
+                      a VIP program with exclusive offers, priority scheduling,
                       and personalized outreach.
                     </li>
-                    <li>
+                    <li className="flex items-start">
                       <span className="text-blue-500 mr-2">→</span>
-                      Our team implemented package deals and a referral system
-                      for clients to commit long-term.
+                      Implemented package deals and a referral system to keep
+                      clients committed long‑term.
                     </li>
-                    <li>
-                      {" "}
+                    <li className="flex items-start">
                       <span className="text-blue-500 mr-2">→</span>
-                      Executed targeted Google Ads campaigns designed to bring
-                      in new clients efficiently while maximizing ad spend ROI.
+                      Executed targeted Google Ads campaigns to bring in new
+                      clients efficiently while maximizing ROI.
                     </li>
                   </ul>
-                </p>
+                </div>
               </div>
             </div>
 
