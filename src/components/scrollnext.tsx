@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid";
 
 export default function ScrollControls() {
@@ -35,8 +35,6 @@ export default function ScrollControls() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [sections]);
-
-  const next = () => setCurrentIdx((c) => (c + 1) % sections.length);
 
   useEffect(() => {
     if (!sections.length) return;
