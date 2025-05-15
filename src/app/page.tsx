@@ -5,10 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Carousel from "@/components/Carousel";
 import ScrollButton from "@/components/scrollnext";
-import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [showError, setShowError] = useState(false);

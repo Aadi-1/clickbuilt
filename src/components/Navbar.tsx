@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -24,21 +25,21 @@ export default function Navbar() {
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8 text-lg font-medium">
-          <a href="/" className="hover:text-blue-600">
+          <Link href="/" className="hover:text-blue-600">
             Home
-          </a>
-          <a href="/services" className="hover:text-blue-600">
+          </Link>
+          <Link href="/services" className="hover:text-blue-600">
             Services
-          </a>
-          <a href="/testimonials" className="hover:text-blue-600">
+          </Link>
+          <Link href="/testimonials" className="hover:text-blue-600">
             Testimonials
-          </a>
-          <a href="/about" className="hover:text-blue-600">
+          </Link>
+          <Link href="/about" className="hover:text-blue-600">
             About
-          </a>
+          </Link>
 
           {/* Styled “Contact” pill */}
-          <a
+          <Link
             href="/#contact"
             className="
               bg-orange-600 hover:bg-orange-700
@@ -49,7 +50,7 @@ export default function Navbar() {
             "
           >
             Book Now!
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Hamburger */}
@@ -97,41 +98,41 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-white border-t border-gray-200 px-4 pb-4 space-y-3 text-lg font-medium">
-          <a
+          <Link
             href="/"
             onClick={() => setMenuOpen(false)}
             className="block hover:text-blue-600"
           >
             Home
-          </a>
-          <a
+          </Link>
+          <Link
             href="/services"
             onClick={() => setMenuOpen(false)}
             className="block hover:text-blue-600"
           >
             Services
-          </a>
-          <a
+          </Link>
+          <Link
             href="/testimonials"
             onClick={() => setMenuOpen(false)}
             className="block hover:text-blue-600"
           >
             Testimonials
-          </a>
-          <a
+          </Link>
+          <Link
             href="/about"
             onClick={() => setMenuOpen(false)}
             className="block hover:text-blue-600"
           >
             About
-          </a>
-          <a
+          </Link>
+          <Link
             href="/#contact"
             onClick={() => setMenuOpen(false)}
             className=" inline-block bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-full px-4 py-2 transition-colors"
           >
             Book Now
-          </a>
+          </Link>
         </div>
       )}
     </header>

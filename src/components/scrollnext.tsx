@@ -1,10 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import {
-  ChevronDoubleDownIcon,
-  ChevronUpIcon,
-} from "@heroicons/react/24/solid";
+import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid";
 
 export default function ScrollControls() {
   const [sections, setSections] = useState<HTMLElement[]>([]);
@@ -50,19 +47,6 @@ export default function ScrollControls() {
     const timer = setInterval(next, 8000);
     return () => clearInterval(timer);
   }, [sections]);
-
-  // touch handlers for swipe
-  const onTouchStart = (e: React.TouchEvent) => {
-    startX.current = e.touches[0].clientX;
-  };
-  const onTouchMove = (e: React.TouchEvent) => {
-    endX.current = e.touches[0].clientX;
-  };
-  const onTouchEnd = () => {
-    const diff = startX.current - endX.current;
-    if (diff > 50) next();
-    else if (diff < -50) prev();
-  };
 
   const goNext = () => {
     const nextIdx = Math.min(currentIdx + 1, sections.length - 1);

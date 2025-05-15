@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function testimonial() {
   return (
@@ -111,9 +112,11 @@ export default function testimonial() {
             <div className="flex flex-col md:flex-row gap-6 pt-8 border-t border-gray-300">
               {/* Website Image */}
               <div className="md:w-1/2">
-                <img
+                <Image
                   src="/bnrss.png"
                   alt="Bark n’ Roll Website"
+                  width={400}
+                  height={320}
                   className="rounded-lg w-full object-cover shadow-md"
                 />
               </div>
