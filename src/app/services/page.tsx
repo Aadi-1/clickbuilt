@@ -72,7 +72,7 @@ export default function services() {
       </section>
 
       {/* 2. Why & What SEO */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-sky-100">
         <div className="container mx-auto px-4 md:flex md:items-center md:flex-row-reverse md:space-x-12">
           <div className="md:w-1/2 mb-8 md:mb-0">
             <h2 className="text-4xl font-semibold text-blue-800 mb-2">
@@ -160,7 +160,46 @@ export default function services() {
           </div>
         </div>
       </section>
+      <section className="py-20 bg-sky-100">
+        <div className="container mx-auto px-4 md:flex md:items-center md:space-x-12">
+          {/* Illustration Column (now first) */}
+          <div className="md:w-1/2 flex justify-center mb-8 md:mb-0">
+            <Image
+              src="/market.svg"
+              alt="Marketing Strategies Illustration"
+              width={400}
+              height={300}
+              className="rounded-lg shadow-lg"
+            />
+          </div>
 
+          {/* Text Column */}
+          <div className="md:w-1/2">
+            <h2 className="text-4xl font-semibold text-blue-800 mb-2">
+              Creative Marketing Strategies
+            </h2>
+            {/* Underline */}
+            <div className="h-1 w-50 mb-4 bg-orange-400 rounded-lg"></div>
+            <p className="text-gray-700 mb-4 text-xl">
+              Beyond web & ads, we drive new customers through:
+            </p>
+            <ul className="space-y-2 text-gray-700 text-lg">
+              <li className="flex items-start">
+                <span className="text-blue-500 mr-2">→</span>
+                Strategic package deals and referral programs
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-500 mr-2">→</span>
+                Partnerships & affiliate offers with complementary businesses
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-500 mr-2">→</span>
+                Unconventional outreach—billboards, signage, & guerrilla tactics
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
       {/* CTA */}
       <section
         id="contact"

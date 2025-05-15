@@ -14,10 +14,16 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
         </div>
+        <Link
+          href="/"
+          className="inline-block bg-orange-600 hover:bg-white hover:text-black text-white font-semibold rounded-full px-8 py-3 mt-8 transition-colors"
+        >
+          Back to Home
+        </Link>
       </section>
 
       {/* Our Story */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-sky-50">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-3xl font-semibold text-blue-800 mb-4">
             Our Journey

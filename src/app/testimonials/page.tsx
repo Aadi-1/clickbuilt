@@ -10,15 +10,21 @@ export default function testimonial() {
             We partner with growing businesses to build systems that convert,
             retain, and scale.
           </p>
+          <Link
+            href="/"
+            className="inline-block bg-orange-600 hover:bg-white hover:text-black text-white font-semibold rounded-full px-8 py-3 mt-8 transition-colors"
+          >
+            Back to Home
+          </Link>
         </div>
       </section>
 
       {/* CUSTOMER CARD – Bark n’ Roll */}
-      <section className="bg-sky-50 py-12">
+      <section className="bg-sky-100 py-12" id="barknroll">
         <div className="container mx-auto px-4">
           <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col gap-6">
             {/* Title */}
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-700 text-center underline underline-offset-8 decoration-orange-400">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 text-center underline underline-offset-8 decoration-orange-400">
               Bark n’ Roll Petcare
             </h2>
 

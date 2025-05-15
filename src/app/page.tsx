@@ -1,5 +1,6 @@
 "use client";
-import { useState, useEffect } from "react";
+
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Carousel from "@/components/Carousel";
@@ -8,13 +9,14 @@ import { useRouter } from "next/navigation";
 
 export default function Home() {
   const router = useRouter();
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const caseStudies = [
     {
-      slug: "bark-n-roll-petcare", //  <-- add a slug
+      slug: "bark-n-roll-petcare",
       img: "bnrss.png",
       title: "Bark n' Roll Petcare",
       desc: "Helped a family-owned Dog Walking business improve their online presence and traffic through a Responsive Website, Efficient SEO, and Google Advertising",
@@ -24,15 +26,10 @@ export default function Home() {
       ],
       testimonial: `"ClickBuild transformed our online presence. We now get consistent orders through our website every day!"`,
     },
-    // …more case studies here…
+    // …add more case studies here…
   ];
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+  // smooth scrolling
   useEffect(() => {
     document.documentElement.style.scrollBehavior = "smooth";
   }, []);
@@ -41,34 +38,54 @@ export default function Home() {
     e.preventDefault();
     setLoading(true);
     const form = new FormData(e.currentTarget);
-    const res = await fetch("/api/contact", { method: "POST", body: form });
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      body: form,
+    });
     setLoading(false);
+
     if (res.ok) {
-      alert("Thanks! We’ll be in touch soon.");
-      router.refresh();
+      setShowSuccess(true);
+      formRef.current?.reset();
     } else {
-      alert("Oops, something went wrong.");
+      setShowError(true);
     }
   };
 
+  useEffect(() => {
+    if (showSuccess) {
+      const timer = setTimeout(() => setShowSuccess(false), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [showSuccess]);
+
+  // auto-hide error toast
+  useEffect(() => {
+    if (showError) {
+      const timer = setTimeout(() => setShowError(false), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [showError]);
+
   return (
     <div className="font-sans text-gray-800 overflow-x-hidden">
-      {/* Header */}
       <main className="w-full">
+        {/* Scroll-to‑next FAB */}
         <ScrollButton />
-        {/* Hero Section */}
+
+        {/* Hero */}
         <section className="bg-gradient-to-br from-blue-800 to-blue-500 text-white pt-36 pb-20 text-center">
           <div className="container mx-auto px-4">
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-5">
               <span className="underline underline-offset-10 decoration-orange-600">
                 Stop Losing Customers
-              </span>{" "}
+              </span>
               <br />
               to Competitors Who Market Better.
             </h1>
             <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
               We help you take control of your online market with
-              high-converting websites and growth-focused campaigns.
+              high‑converting websites and growth‑focused campaigns.
             </p>
             <a
               href="#contact"
@@ -79,105 +96,37 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Case Studies Carousel */}
         <Carousel />
 
-        {/* Why Choose Us Section */}
-        <section className="py-20 bg-gray-300 bg-gradient-to-br from-blue-800 to-blue-500">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-white mb-3 underline underline-offset-8 decoration-orange-600">
-                Why Businesses Choose Us
-              </h2>
-              <p className="text-white font-semibold">
-                Yes, we might be small, but we leave a HUGE impact
-              </p>
-            </div>
-
-            {/* Flex wrapper instead of grid */}
-            <div className="flex flex-wrap justify-center gap-8">
-              {[
-                {
-                  icon: "cbcheck.svg",
-                  title: "Custom Solutions",
-                  desc: "Every strategy is crafted to match your industry, goals, and growth stage.",
-                },
-                {
-                  icon: "cbresults.svg",
-                  title: "Results Driven",
-                  desc: "We focus on delivering the best products with in detail reporting so you can see how your $$$ is invested.",
-                },
-                {
-                  icon: "cbhand.svg",
-                  title: "Ongoing Support",
-                  desc: "We don’t disappear after launch. From analytics to optimization, we support your growth every step of the way.",
-                },
-              ].map((feature) => (
-                <div
-                  key={feature.title}
-                  className="text-center p-6 w-80 bg-white rounded-lg shadow-lg"
-                >
-                  <Image
-                    src={`/${feature.icon}`} // from public/
-                    alt={feature.title}
-                    width={60}
-                    height={48}
-                    className="mx-auto mb-4"
-                  />
-                  <h3 className="text-xl font-semibold mb-2">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600">{feature.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="flex justify-center mt-6">
-            <a
-              href="/services"
-              className="
-      inline-block 
-      bg-orange-600 hover:bg-orange-700 
-      text-white text-sm font-semibold 
-      rounded-full 
-      px-4 py-2 
-      transition-colors
-    "
-            >
-              Learn More
-            </a>
-          </div>
-        </section>
-
         {/* Results Section */}
-        <section id="testimonials" className="bg-sky-50 py-20 justify-center">
+        <section
+          id="testimonials"
+          className="bg-gradient-to-br from-blue-800 to-sky-300 py-20 flex justify-center"
+        >
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-blue-800 mb-3">
+              <h2 className="text-4xl font-bold text-white mb-3">
                 Real Results from Real Businesses
               </h2>
-              <p className="text-gray-700">
+              <p className="text-gray-100 text-lg">
                 See how we've helped businesses just like yours
               </p>
             </div>
-
             <div className="flex flex-wrap justify-center gap-8">
               {caseStudies.map((cs) => (
                 <Link
                   key={cs.slug}
-                  href={`/testimonials`}
-                  className="
-                block
-                bg-white rounded-lg overflow-hidden shadow-lg
-                text-center w-full sm:w-1/2 md:w-1/3
-                hover:shadow-xl transform hover:-translate-y-2
-                transition-transform
-              "
+                  href={`/testimonials/#${cs.slug}`}
+                  className="block bg-white rounded-lg overflow-hidden shadow-lg text-center w-full sm:w-1/2 md:w-1/3 hover:shadow-xl transform hover:-translate-y-2 transition-transform"
                 >
                   <div className="h-48 bg-gray-200 flex items-center justify-center">
-                    <img
-                      src={cs.img}
+                    <Image
+                      src={`/${cs.img}`}
                       alt={cs.title}
-                      className="h-full w-full object-cover"
+                      width={400}
+                      height={320}
+                      className="object-cover w-full h-full"
                     />
                   </div>
                   <div className="p-6">
@@ -203,7 +152,74 @@ export default function Home() {
           </div>
         </section>
 
-        {/* How It Works Section */}
+        {/* Why Choose Us */}
+        <section className="py-20 bg-gray-300 bg-sky-50">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-blue-800 mb-3 underline underline-offset-8 decoration-orange-600">
+                Why Businesses Choose Us
+              </h2>
+              <p className="text-blue-800 font-semibold text-lg">
+                You don’t need a big agency. You need a partner who actually
+                cares about your success.
+              </p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-8">
+              <div className="text-center p-6 w-80 bg-white rounded-lg shadow-lg">
+                <Image
+                  src="/cbcheck.svg"
+                  alt="Custom Solutions"
+                  width={60}
+                  height={48}
+                  className="mx-auto mb-4"
+                />
+                <h3 className="text-xl font-semibold mb-2">Custom Solutions</h3>
+                <p className="text-gray-600">
+                  Every strategy is crafted to match your industry, goals, and
+                  growth stage.
+                </p>
+              </div>
+              <div className="text-center p-6 w-80 bg-white rounded-lg shadow-lg">
+                <Image
+                  src="/cbresults.svg"
+                  alt="Results Driven"
+                  width={60}
+                  height={48}
+                  className="mx-auto mb-4"
+                />
+                <h3 className="text-xl font-semibold mb-2">Results Driven</h3>
+                <p className="text-gray-600">
+                  We focus on delivering the best products with in‑detail
+                  reporting so you can see how your $$$ is invested.
+                </p>
+              </div>
+              <div className="text-center p-6 w-80 bg-white rounded-lg shadow-lg">
+                <Image
+                  src="/cbhand.svg"
+                  alt="Ongoing Support"
+                  width={60}
+                  height={48}
+                  className="mx-auto mb-4"
+                />
+                <h3 className="text-xl font-semibold mb-2">Ongoing Support</h3>
+                <p className="text-gray-600">
+                  We don’t disappear after launch. From analytics to
+                  optimization, we support your growth every step of the way.
+                </p>
+              </div>
+            </div>
+            <div className="flex justify-center mt-6">
+              <a
+                href="/services"
+                className="inline-block bg-orange-600 hover:bg-orange-700 text-white text-sm font-semibold rounded-full px-4 py-2 transition-colors"
+              >
+                Learn More
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* How It Works */}
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold text-blue-800 mb-3">
@@ -213,7 +229,6 @@ export default function Home() {
               A simple, effective process focused on your success
             </p>
             <div className="relative max-w-4xl mx-auto">
-              <div className="absolute inset-0 flex items-center"></div>
               <div className="relative flex flex-col md:flex-row justify-between space-y-8 md:space-y-0 md:space-x-4 mt-8">
                 {[
                   {
@@ -253,7 +268,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* CTA Section */}
+        {/* Contact Form */}
         <section
           id="contact"
           className="bg-gradient-to-br from-blue-800 to-blue-500 text-white py-20"
@@ -263,6 +278,7 @@ export default function Home() {
               Ready to Grow Your Business?
             </h2>
             <form
+              ref={formRef}
               onSubmit={handleSubmit}
               className="max-w-lg mx-auto space-y-4 text-gray-800"
               encType="multipart/form-data"
@@ -271,19 +287,11 @@ export default function Home() {
                 <input
                   name="firstName"
                   type="text"
-                  placeholder="First Name"
-                  required
-                  className="flex-1 p-3 rounded-full bg-gray-100"
-                />
-                <input
-                  name="lastName"
-                  type="text"
-                  placeholder="Last Name"
+                  placeholder="Name"
                   required
                   className="flex-1 p-3 rounded-full bg-gray-100"
                 />
               </div>
-
               <input
                 name="email"
                 type="email"
@@ -291,36 +299,30 @@ export default function Home() {
                 required
                 className="w-full p-3 rounded-full bg-gray-100"
               />
-
               <input
                 name="businessName"
                 type="text"
                 placeholder="Business Name"
                 className="w-full p-3 rounded-full bg-gray-100"
               />
-
-              <div className="flex space-x-4">
-                <select
-                  name="businessType"
-                  required
-                  className="w-full p-3 rounded-full bg-gray-100"
-                >
-                  <option value="">Business Type</option>
-                  <option>Personal Brands</option>
-                  <option>Restaurants/Cafe</option>
-                  <option>Professional Services (Legal, Business)</option>
-                  <option>E-commerce</option>
-                  <option>Service Based Businesses</option>
-                </select>
-              </div>
-
+              <select
+                name="businessType"
+                required
+                className="w-full p-3 rounded-full bg-gray-100"
+              >
+                <option value="">Business Type</option>
+                <option>Personal Brands</option>
+                <option>Restaurants/Cafe</option>
+                <option>Professional Services (Legal, Business)</option>
+                <option>E‑commerce</option>
+                <option>Service Based Businesses</option>
+              </select>
               <input
                 name="phone"
                 type="tel"
                 placeholder="Phone Number"
                 className="w-full p-3 rounded-full bg-gray-100"
               />
-
               <div className="flex space-x-4">
                 <select
                   name="budget"
@@ -329,8 +331,8 @@ export default function Home() {
                 >
                   <option value="">Budget</option>
                   <option>Under 1k</option>
-                  <option>1-2k</option>
-                  <option>3-4k</option>
+                  <option>1‑2k</option>
+                  <option>3‑4k</option>
                   <option>5k+</option>
                 </select>
                 <select
@@ -340,19 +342,17 @@ export default function Home() {
                 >
                   <option value="">Monthly Revenue</option>
                   <option>Under 1k</option>
-                  <option>1-5k</option>
-                  <option>5-10k</option>
+                  <option>1‑5k</option>
+                  <option>5‑10k</option>
                   <option>10k+</option>
                 </select>
               </div>
-
               <textarea
                 name="message"
                 rows={3}
                 placeholder="Additional details (optional)"
                 className="w-full p-3 rounded-lg bg-gray-100"
               />
-
               <button
                 type="submit"
                 disabled={loading}
@@ -363,6 +363,42 @@ export default function Home() {
             </form>
           </div>
         </section>
+
+        {/* Success Toast */}
+        {showSuccess && (
+          <div className="fixed bottom-6 right-6 z-50 transition-opacity duration-500">
+            <div className="bg-white border-l-4 border-blue-600 rounded-md shadow-lg p-4 max-w-xs opacity-100">
+              <h3 className="text-lg font-semibold mb-1 text-blue-600">
+                Success!
+              </h3>
+              <p className="text-gray-700 mb-3">Your message has been sent.</p>
+              <button
+                onClick={() => setShowSuccess(false)}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-full text-sm"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Error Toast */}
+        {showError && (
+          <div className="fixed bottom-6 right-6 z-50 transition-opacity duration-500">
+            <div className="bg-white border-l-4 border-red-600 rounded-md shadow-lg p-4 max-w-xs opacity-100">
+              <h3 className="text-lg font-semibold mb-1 text-red-600">Oops!</h3>
+              <p className="text-gray-700 mb-3">
+                Something went wrong. Please try again later.
+              </p>
+              <button
+                onClick={() => setShowError(false)}
+                className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-full text-sm"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
       </main>
     </div>
   );
