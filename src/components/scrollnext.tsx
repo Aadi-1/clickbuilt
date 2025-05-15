@@ -7,8 +7,6 @@ export default function ScrollControls() {
   const [sections, setSections] = useState<HTMLElement[]>([]);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [showTop, setShowTop] = useState(false);
-  const startX = useRef(0);
-  const endX = useRef(0);
 
   // grab all the page sections on mount
   useEffect(() => {
@@ -38,15 +36,15 @@ export default function ScrollControls() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [sections]);
 
-  const prev = () =>
-    setCurrentIdx((c) => (c + sections.length - 1) % sections.length);
   const next = () => setCurrentIdx((c) => (c + 1) % sections.length);
 
-  // autoplay every 8 seconds
   useEffect(() => {
-    const timer = setInterval(next, 8000);
+    if (!sections.length) return;
+    const timer = setInterval(() => {
+      setCurrentIdx((c) => (c + 1) % sections.length);
+    }, 7000);
     return () => clearInterval(timer);
-  }, [sections]);
+  }, [sections.length]);
 
   const goNext = () => {
     const nextIdx = Math.min(currentIdx + 1, sections.length - 1);

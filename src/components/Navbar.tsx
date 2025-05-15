@@ -12,7 +12,7 @@ export default function Navbar() {
     <header className="bg-white shadow-md  w-full z-50">
       <nav className="flex items-center justify-between max-w-screen-xl mx-auto px-4">
         {/* Logo (hidden on mobile) */}
-        <a href="/" className="hidden md:block">
+        <Link href="/" className="hidden md:block">
           <Image
             src="/click4.png"
             alt="ClickBuilt Logo"
@@ -21,7 +21,7 @@ export default function Navbar() {
             className="object-contain"
             priority
           />
-        </a>
+        </Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8 text-lg font-medium">
