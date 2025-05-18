@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
 import Script from "next/script";
-import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 
 import Navbar from "@/components/Navbar";
 
