@@ -82,14 +82,14 @@ export default function Home() {
               to Competitors Who Market Better.
             </h1>
             <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
-              We help you take control of your online market with
-              high‑converting websites and growth‑focused campaigns.
+              ClickBuilt Digital Marketing and Consulting Solutions Designed to
+              Help You Achieve Real Business Growth.
             </p>
             <a
               href="#contact"
               className="inline-block bg-orange-600 hover:bg-white hover:text-black text-white font-semibold rounded-full px-8 py-3 transition-colors"
             >
-              Take Back Your Market
+              Book A Free Strategy Call
             </a>
           </div>
         </section>
@@ -311,7 +311,7 @@ export default function Home() {
                 <option value="">Business Type</option>
                 <option>Personal Brands</option>
                 <option>Restaurants/Cafe</option>
-                <option>Professional Services (Legal, Business)</option>
+                <option>Professional Services</option>
                 <option>E‑commerce</option>
                 <option>Service Based Businesses</option>
               </select>
@@ -319,6 +319,10 @@ export default function Home() {
                 name="phone"
                 type="tel"
                 placeholder="Phone Number"
+                required
+                inputMode="tel"
+                pattern="^\+?[0-9]{7,15}$"
+                title="Please enter a valid phone number (7–15 digits, optional leading +)"
                 className="w-full p-3 rounded-full bg-gray-100"
               />
               <div className="flex space-x-4">

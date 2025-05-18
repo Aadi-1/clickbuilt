@@ -34,6 +34,9 @@ export default function Navbar() {
           <Link href="/testimonials" className="hover:text-blue-600">
             Testimonials
           </Link>
+          <Link href="/pricing" className="hover:text-blue-600">
+            Pricing
+          </Link>
           <Link href="/about" className="hover:text-blue-600">
             About
           </Link>

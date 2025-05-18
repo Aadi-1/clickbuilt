@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Head from "next/head";
 
 import Navbar from "@/components/Navbar";
 
@@ -30,6 +31,24 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Head>
+          <title>
+            ClickBuilt Digital Consulting | Website Creation, SEO, and
+            Advertising
+          </title>
+          <meta
+            name="ClickBuilt Digital Consulting"
+            content="ClickBuilt Digital Consulting Providing Website Design, SEO, and Digital Ads Management to Help Businesses Grow With Proven Lead Generation Strategies."
+          />
+        </Head>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-NF2LXM7Q"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <div className="bg-gradient-to-l shadow-lg border-b bg-white text-black z-50 w-full ">
           <Navbar />
         </div>
