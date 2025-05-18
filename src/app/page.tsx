@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Carousel from "@/components/Carousel";
 import ScrollButton from "@/components/scrollnext";
+import Script from "next/script";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -68,6 +70,20 @@ export default function Home() {
   return (
     <div className="font-sans text-gray-800 overflow-x-hidden">
       <main className="w-full">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-FCF9ZCJL9F"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FCF9ZCJL9F', {
+    page_path: window.location.pathname,
+  });
+`}
+        </Script>
         {/* Scroll-to‑next FAB */}
         <ScrollButton />
 
@@ -82,8 +98,9 @@ export default function Home() {
               to Competitors Who Market Better.
             </h1>
             <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
-              ClickBuilt Digital Marketing and Consulting Solutions Designed to
-              Help You Achieve Real Business Growth.
+              ClickBuilt Digital Consulting Providing Website Design, SEO, and
+              Digital Ads Management to Help Businesses Grow With Proven Lead
+              Generation Strategies.
             </p>
             <a
               href="#contact"

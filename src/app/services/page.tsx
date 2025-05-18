@@ -3,10 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import ScrollButton from "@/components/scrollnext";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 
 export default function services() {
   return (
     <main className="font-sans text-gray-800 overflow-x-hidden">
+      <GoogleTagManager gtmId="GTM-NF2LXM7Q" />
+      <GoogleAnalytics gaId="G-FCF9ZCJL9F" />
       <ScrollButton />
       {/* Hero */}
       <section className="bg-gradient-to-br from-blue-800 to-blue-500 text-white pt-36 pb-20 text-center">

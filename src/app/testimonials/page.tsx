@@ -1,9 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 
 export default function testimonial() {
   return (
     <main>
+      <GoogleTagManager gtmId="GTM-NF2LXM7Q" />
+      <GoogleAnalytics gaId="G-FCF9ZCJL9F" />
       <section className="bg-gradient-to-br from-blue-800 to-blue-500 text-white py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Customers</h1>

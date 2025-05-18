@@ -3,10 +3,28 @@
 import Link from "next/link";
 import Image from "next/image";
 import ScrollButton from "@/components/scrollnext";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
 
 export default function AboutPage() {
   return (
     <main className="font-sans text-gray-800 overflow-x-hidden">
+      <head>
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-63HMB5JB3Q"
+        />
+        <Script id="ga-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-63HMB5JB3Q');
+          `}
+        </Script>
+      </head>
+      <GoogleTagManager gtmId="G-FCF9ZCJL9F" />
+      <GoogleAnalytics gaId="G-FCF9ZCJL9F" />
       <ScrollButton />
 
       {/* Hero Section */}
