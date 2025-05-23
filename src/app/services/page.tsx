@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import ScrollButton from "@/components/scrollnext";
 import Script from "next/script";
-import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 
 export default function services() {
   return (

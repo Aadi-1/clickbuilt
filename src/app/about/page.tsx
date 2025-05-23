@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import ScrollButton from "@/components/scrollnext";
-import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 import Script from "next/script";
 
 export default function AboutPage() {

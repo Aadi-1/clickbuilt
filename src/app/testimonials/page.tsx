@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import Script from "next/script";
-import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 
 export default function testimonial() {
   return (

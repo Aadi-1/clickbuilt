@@ -44,25 +44,45 @@ export default function PricingPage() {
           </div>
 
           {/* Monthly Partnership */}
-          <div className="flex flex-col h-full bg-white rounded-xl shadow-lg p-8 text-center">
-            <h3 className="text-2xl font-semibold mb-4">Monthly Partnership</h3>
-            <p className="text-4xl font-bold text-blue-800 mb-4">
-              $400 + $50/mo
-            </p>
-            <ul className="space-y-2 text-gray-700 mb-6 text-left flex-1">
-              <li className="flex items-start">
-                <span className="text-orange-600 mr-2">→</span>
-                Website Build & Ongoing Edits
-              </li>
-              <li className="flex items-start">
-                <span className="text-orange-600 mr-2">→</span>
-                Monthly SEO & Content Updates
-              </li>
-              <li className="flex items-start">
-                <span className="text-orange-600 mr-2">→</span>
-                Analytics & Performance Reporting
-              </li>
-            </ul>
+          <div className="relative">
+            <div className="absolute -top-3 left-1/2 transform font-semibold -translate-x-1/2 bg-blue-500 text-white px-3 py-1 rounded-full text-sm">
+              Most Popular
+            </div>
+
+            <div className="flex flex-col h-full bg-white rounded-xl shadow-lg p-8 text-center border-4 border-blue-500">
+              <h3 className="text-2xl font-semibold mb-4">
+                Monthly Partnership
+              </h3>
+              <p className="text-4xl font-bold text-blue-800 mb-4">
+                $400 + $50/mo
+              </p>
+              <ul className="space-y-2 text-gray-700 mb-6 text-left flex-1">
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">→</span>
+                  Website Build & Ongoing Edits
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">→</span>
+                  Monthly SEO & Content Updates
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">→</span>
+                  Analytics & Performance Reporting
+                </li>
+              </ul>
+              {/* Marketing Extras */}
+              <h4 className="text-lg font-semibold mb-2">Marketing Extras</h4>
+              <ul className="space-y-2 text-gray-700 text-left">
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">→</span>
+                  Google Business Profile Management
+                </li>
+                <li className="flex items-start">
+                  <span className="text-orange-600 mr-2">→</span>
+                  Referral & Package Strategy
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Ads Management Only */}
