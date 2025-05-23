@@ -3,13 +3,31 @@
 import Image from "next/image";
 import Link from "next/link";
 import ScrollButton from "@/components/scrollnext";
+import Script from "next/script";
 import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 
 export default function services() {
   return (
     <main className="font-sans text-gray-800 overflow-x-hidden">
-      <GoogleTagManager gtmId="GTM-NF2LXM7Q" />
-      <GoogleAnalytics gaId="G-FCF9ZCJL9F" />
+      <Script
+        id="gtm-head"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-KNBDPQ8X');`,
+        }}
+      />
+      <noscript>
+        <iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-NF2LXM7Q"
+          height="0"
+          width="0"
+          style={{ display: "none", visibility: "hidden" }}
+        />
+      </noscript>
       <ScrollButton />
       {/* Hero */}
       <section className="bg-gradient-to-br from-blue-800 to-blue-500 text-white pt-36 pb-20 text-center">

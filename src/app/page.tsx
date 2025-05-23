@@ -70,19 +70,24 @@ export default function Home() {
     <div className="font-sans text-gray-800 overflow-x-hidden">
       <main className="w-full">
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-FCF9ZCJL9F"
-          strategy="afterInteractive"
+          id="gtm-head"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-KNBDPQ8X');`,
+          }}
         />
-        <Script id="gtag-init" strategy="afterInteractive">
-          {`
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-FCF9ZCJL9F', {
-    page_path: window.location.pathname,
-  });
-`}
-        </Script>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-NF2LXM7Q"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         {/* Scroll-to‑next FAB */}
         <ScrollButton />
 

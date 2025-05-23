@@ -20,6 +20,11 @@ export const metadata: Metadata = {
   title: "ClickBuilt",
   description:
     "Custom websites, sales funnels, and marketing solutions that bring real customers to your door",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -85,10 +90,11 @@ export default function RootLayout({
                 <li className="flex items-center">
                   <i className="fas fa-phone mr-2 text-blue-500"></i>
                   <a
-                    href="tel:8054288828"
+                    href="tel:8054103871
+"
                     className="hover:text-blue-500 transition-colors underline underline-offset-5"
                   >
-                    (805) 428‑CKBT
+                    (805) 410-3871
                   </a>
                 </li>
                 <li className="flex items-center">
@@ -97,7 +103,7 @@ export default function RootLayout({
                     href="mailto:clickbuiltsolutions@gmail.com"
                     className="hover:text-blue-500 transition-colors  underline underline-offset-5"
                   >
-                    clickbuiltsolutions@gmail.com
+                    aadi@clickbuilt.net
                   </a>
                 </li>
               </ul>
@@ -169,7 +175,7 @@ export default function RootLayout({
 
           {/* Copyright */}
           <div className="text-center text-gray-500 mt-12 text-sm">
-            &copy; 2025 ClickBuilt Digital Marketing. All Rights Reserved.
+            &copy; 2025 ClickBuilt Digital Consulting. All Rights Reserved.
           </div>
         </footer>
       </body>
