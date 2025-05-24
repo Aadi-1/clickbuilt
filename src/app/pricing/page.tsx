@@ -22,12 +22,14 @@ export default function PricingPage() {
 
       {/* Pricing Cards */}
       <section className="py-20 bg-sky-50">
-        <div className="container mx-auto px-4 grid gap-8 sm:grid-cols-1 md:grid-cols-3 items-stretch">
+        +{" "}
+        <div className="container mx-auto px-4 grid gap-8 sm:grid-cols-1 md:grid-cols-3 items-start">
           {/* One-Time Build */}
-          <div className="flex flex-col h-full bg-white rounded-xl shadow-lg p-8 text-center">
+          <div className="flex flex-col justify-between h-full bg-white rounded-xl shadow-lg p-8 text-center">
             <h3 className="text-2xl font-semibold mb-4">One-Time Build</h3>
-            <p className="text-4xl font-bold text-blue-800 mb-4">$500-700</p>
-            <ul className="space-y-2 text-gray-700 mb-6 text-left flex-1">
+            <p className="text-4xl font-bold text-blue-800 mb-4">$1000</p>
+
+            <ul className="space-y-2 text-gray-700 mb-6 text-left">
               <li className="flex items-start">
                 <span className="text-orange-600 mr-2">→</span>
                 Custom Website Design & Development
@@ -41,22 +43,43 @@ export default function PricingPage() {
                 Initial Onboarding & Training
               </li>
             </ul>
+
+            {/* Missing Out On (styled like Marketing Extras) */}
+            <h4 className="text-lg font-semibold mb-2 underline underline-offset-4">
+              Missing Out On
+            </h4>
+            <ul className="space-y-2 text-gray-700 text-left">
+              <li className="flex items-start">
+                <XMarkIcon className="w-7 h-7 text-red-600" />
+                Ongoing SEO & content updates
+              </li>
+              <li className="flex items-start">
+                <XMarkIcon className="w-7 h-7 text-red-600" />
+                Performance tracking or analytics
+              </li>
+              <li className="flex items-start">
+                <XMarkIcon className="w-7 h-7 text-red-600" />
+                Growth-focused marketing support
+              </li>
+              <li className="flex items-start">
+                <XMarkIcon className="w-7 h-7 text-red-600" />
+                Strategy adjustments based on data
+              </li>
+            </ul>
           </div>
 
           {/* Monthly Partnership */}
           <div className="relative">
-            <div className="absolute -top-3 left-1/2 transform font-semibold -translate-x-1/2 bg-blue-500 text-white px-3 py-1 rounded-full text-sm">
+            <div className="absolute -top-3 left-1/2 transform font-semibold -translate-x-1/2 bg-blue-500 text-white px-3 py-1 rounded-full text-md">
               Most Popular
             </div>
 
-            <div className="flex flex-col h-full bg-white rounded-xl shadow-lg p-8 text-center border-4 border-blue-500">
+            <div className="flex flex-col justify-between h-full bg-white rounded-xl shadow-lg p-8 text-center border-4 border-blue-500">
               <h3 className="text-2xl font-semibold mb-4">
                 Monthly Partnership
               </h3>
-              <p className="text-4xl font-bold text-blue-800 mb-4">
-                $400 + $50/mo
-              </p>
-              <ul className="space-y-2 text-gray-700 mb-6 text-left flex-1">
+              <p className="text-4xl font-bold text-blue-800 mb-4">$600/mo</p>
+              <ul className="space-y-2 text-gray-700 mb-2 text-left">
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">→</span>
                   Website Build & Ongoing Edits
@@ -71,7 +94,7 @@ export default function PricingPage() {
                 </li>
               </ul>
               {/* Marketing Extras */}
-              <h4 className="text-lg font-semibold mb-2">Marketing Extras</h4>
+              <h4 className="text-lg font-semibold mb-2 ">Marketing Extras</h4>
               <ul className="space-y-2 text-gray-700 text-left">
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">→</span>
@@ -79,17 +102,20 @@ export default function PricingPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-600 mr-2">→</span>
-                  Referral & Package Strategy
+                  Growth Campaign Strategy{" "}
                 </li>
               </ul>
             </div>
           </div>
 
           {/* Ads Management Only */}
-          <div className="flex flex-col h-full bg-white rounded-xl shadow-lg p-8 text-center">
+          <div className="flex flex-col justify-between bg-white rounded-xl shadow-lg p-8 text-center">
             <h3 className="text-2xl font-semibold mb-4">Ads Management Only</h3>
             <p className="text-4xl font-bold text-blue-800 mb-4">
-              $300 + <span className="text-sm">$300–500/mo</span>
+              Depending on Ad Budget{" "}
+            </p>
+            <p className="text-xs mb-4">
+              (We take 10-20% cut depending on size of budget)
             </p>
             <ul className="space-y-2 text-gray-700 mb-6 text-left flex-1">
               <li className="flex items-start">
@@ -107,7 +133,6 @@ export default function PricingPage() {
             </ul>
           </div>
         </div>
-
         <div className="flex justify-center">
           <Link
             href="/#contact"
@@ -118,6 +143,7 @@ export default function PricingPage() {
         </div>
       </section>
 
+      {/* Compare Packages Table */}
       {/* Compare Packages Table */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-4xl">
@@ -162,26 +188,36 @@ export default function PricingPage() {
                 <tr>
                   <td className="p-3 border-b">Ads Management</td>
                   <td className="p-3 border-b">
-                    <span className="text-gray-600">Optional</span>
+                    <span>Optional</span>
                   </td>
                   <td className="p-3 border-b">
-                    <span className="text-gray-600">Optional</span>
+                    <span>Optional</span>
                   </td>
                   <td className="p-3 border-b">
                     <CheckIcon className="w-8 h-8 text-green-600" />
                   </td>
                 </tr>
                 <tr>
-                  <td className="p-3">Monthly Reporting</td>
-                  <td className="p-3">
+                  <td className="p-3 border-b">Monthly Reporting</td>
+                  <td className="p-3 border-b">
+                    <XMarkIcon className="w-8 h-8 text-red-600" />
+                  </td>
+                  <td className="p-3 border-b">
+                    <CheckIcon className="w-8 h-8 text-green-600" />
+                  </td>
+                  <td className="p-3 border-b">
+                    <CheckIcon className="w-8 h-8 text-green-600" />
+                  </td>
+                </tr>
+                <tr>
+                  <td className="p-3 ">Marketing Extras</td>
+                  <td className="p-3 ">
                     <XMarkIcon className="w-8 h-8 text-red-600" />
                   </td>
                   <td className="p-3">
                     <CheckIcon className="w-8 h-8 text-green-600" />
                   </td>
-                  <td className="p-3">
-                    <CheckIcon className="w-8 h-8 text-green-600" />
-                  </td>
+                  <td className="p-3 ">Optional</td>
                 </tr>
               </tbody>
             </table>

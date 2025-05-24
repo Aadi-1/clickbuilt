@@ -21,7 +21,7 @@ export default function Home() {
       desc: "Helped a family-owned Dog Walking business improve their online presence and traffic through a Responsive Website, Efficient SEO, and Google Advertising",
       metrics: [
         { value: "100%", label: "More Traffic" },
-        { value: "77%", label: "More Bookings" },
+        { value: "97%", label: "More Bookings" },
       ],
       testimonial: `"ClickBuild transformed our online presence. We now get consistent orders through our website every day!"`,
     },
@@ -102,7 +102,7 @@ export default function Home() {
               to Competitors Who Market Better.
             </h1>
             <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
-              ClickBuilt Digital Consulting Providing Website Design, SEO, and
+              At ClickBuilt Digital Consulting we do Website Design, SEO, and
               Digital Ads Management to Help Businesses Grow With Proven Lead
               Generation Strategies.
             </p>
@@ -110,7 +110,8 @@ export default function Home() {
               href="#contact"
               className="inline-block bg-orange-600 hover:bg-white hover:text-black text-white font-semibold rounded-full px-8 py-3 transition-colors"
             >
-              Book A Free Strategy Call
+              Book A <span className="underline underline-offset-3">FREE</span>{" "}
+              Strategy Call
             </a>
           </div>
         </section>
