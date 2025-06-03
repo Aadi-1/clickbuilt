@@ -74,29 +74,34 @@ export default function RootLayout({
           <link rel="canonical" href="https://clickbuilt.net/" />
         </Head>
 
-        <Script type="application/ld+json" strategy="afterInteractive">
-          {`
-                {
-                  "@context": "https://schema.org",
-                  "@type": "LocalBusiness",
-                  "name": "ClickBuilt Digital Consulting",
-                  "image": "https://clickbuilt.net/og-image.jpg",
-                  "url": "https://clickbuilt.net",
-                  "telephone": "+1-805-410-3871",
-                  "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Simi Valley",
-                    "addressRegion": "CA",
-                    "postalCode": "93063",
-                    "addressCountry": "US"
-                  },
-                  "sameAs": [
-                    "https://www.instagram.com/YOUR_HANDLE",
-                    "https://www.linkedin.com/in/YOUR_HANDLE"
-                  ]
-                }
-                `}
-        </Script>
+        <Script
+          id="local-business-schema"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "ClickBuilt Digital Consulting",
+        "image": "https://clickbuilt.net/click4.png",
+        "url": "https://clickbuilt.net",
+        "telephone": "+1-805-410-3871",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Simi Valley",
+          "addressRegion": "CA",
+          "postalCode": "93063",
+          "addressCountry": "US"
+        },
+        "sameAs": [
+          "https://www.instagram.com/YOUR_HANDLE",
+          "https://www.linkedin.com/in/YOUR_HANDLE"
+        ]
+      }
+    `,
+          }}
+        />
 
         <Script
           id="gtm-head"
