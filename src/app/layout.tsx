@@ -17,13 +17,38 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ClickBuilt",
+  title:
+    "ClickBuilt Digital Consulting | SEO, Google Ads & Web Design in Simi Valley",
   description:
-    "Custom websites, sales funnels, and marketing solutions that bring real customers to your door",
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/favicon.ico",
-    shortcut: "/favicon.ico",
+    "ClickBuilt helps small businesses grow online through high-performance websites, SEO strategies, and Google Ads campaigns. Based in Simi Valley, CA.",
+  keywords: [
+    "Simi Valley SEO",
+    "small business web design",
+    "Google Ads management",
+    "ClickBuilt Digital Consulting",
+    "local marketing agency",
+  ],
+  openGraph: {
+    title: "ClickBuilt Digital Consulting",
+    description: "SEO, Google Ads & Web Design Services in Simi Valley",
+    url: "https://clickbuilt.net",
+    siteName: "ClickBuilt",
+    images: [
+      {
+        url: "/click4.png",
+        width: 1200,
+        height: 630,
+        alt: "ClickBuilt - SEO and Web Design",
+      },
+    ],
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ClickBuilt Digital Consulting",
+    description: "SEO, Google Ads & Web Design Services in Simi Valley",
+    images: ["/click4.png"],
   },
 };
 
@@ -38,15 +63,31 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Head>
-          <title>
-            ClickBuilt Digital Consulting | Website Creation, SEO, and
-            Advertising
-          </title>
-          <meta
-            name="ClickBuilt Digital Consulting"
-            content="ClickBuilt Digital Consulting Providing Website Design, SEO, and Digital Ads Management to Help Businesses Grow With Proven Lead Generation Strategies."
-          />
+          <Script type="application/ld+json" strategy="afterInteractive">
+            {`
+                {
+                  "@context": "https://schema.org",
+                  "@type": "LocalBusiness",
+                  "name": "ClickBuilt Digital Consulting",
+                  "image": "https://clickbuilt.net/og-image.jpg",
+                  "url": "https://clickbuilt.net",
+                  "telephone": "+1-805-410-3871",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Simi Valley",
+                    "addressRegion": "CA",
+                    "postalCode": "93063",
+                    "addressCountry": "US"
+                  },
+                  "sameAs": [
+                    "https://www.instagram.com/YOUR_HANDLE",
+                    "https://www.linkedin.com/in/YOUR_HANDLE"
+                  ]
+                }
+                `}
+          </Script>
         </Head>
+
         <Script
           id="gtm-head"
           strategy="beforeInteractive"
