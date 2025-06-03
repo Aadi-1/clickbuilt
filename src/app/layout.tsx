@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title:
     "ClickBuilt Digital Consulting | SEO, Google Ads & Web Design in Simi Valley",
   description:
-    "ClickBuilt helps small businesses grow online through high-performance websites, SEO strategies, and Google Ads campaigns. Based in Simi Valley, CA.",
+    "ClickBuilt helps businesses grow online through high-performance websites, SEO strategies, and Google Ads campaigns. Based in Simi Valley, CA.",
   keywords: [
     "Simi Valley SEO",
     "small business web design",
@@ -44,12 +44,6 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "ClickBuilt Digital Consulting",
-    description: "SEO, Google Ads & Web Design Services in Simi Valley",
-    images: ["/click4.png"],
-  },
 };
 
 export default function RootLayout({
@@ -62,18 +56,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Head>
-          <title>
-            ClickBuilt Digital Consulting | SEO, Google Ads & Web Design in Simi
-            Valley
-          </title>
-          <meta
-            name="description"
-            content="ClickBuilt helps local businesses grow with custom websites, SEO, and ad strategies that deliver real leads and results in Simi Valley and beyond."
-          />
-          <link rel="canonical" href="https://clickbuilt.net/" />
-        </Head>
-
         <Script
           id="local-business-schema"
           type="application/ld+json"

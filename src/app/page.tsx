@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -94,18 +93,18 @@ export default function Home() {
         {/* Hero */}
         <section className="bg-gradient-to-br from-blue-800 to-blue-500 text-white pt-36 pb-20 text-center">
           <div className="container mx-auto px-4">
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-5">
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-5">
               <span className="underline underline-offset-10 decoration-orange-600">
                 Stop Losing Customers
               </span>
               <br />
               to Competitors Who Market Better.
-            </h1>
-            <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
+            </h2>
+            <h1 className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
               At ClickBuilt Digital Consulting we do Website Design, SEO, and
               Digital Ads Management to Help Businesses Grow With Proven Lead
               Generation Strategies.
-            </p>
+            </h1>
             <a
               href="#contact"
               className="inline-block bg-orange-600 hover:bg-white hover:text-black text-white font-semibold rounded-full px-8 py-3 transition-colors"
