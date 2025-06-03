@@ -63,8 +63,19 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Head>
-          <Script type="application/ld+json" strategy="afterInteractive">
-            {`
+          <title>
+            ClickBuilt Digital Consulting | SEO, Google Ads & Web Design in Simi
+            Valley
+          </title>
+          <meta
+            name="description"
+            content="ClickBuilt helps local businesses grow with custom websites, SEO, and ad strategies that deliver real leads and results in Simi Valley and beyond."
+          />
+          <link rel="canonical" href="https://clickbuilt.net/" />
+        </Head>
+
+        <Script type="application/ld+json" strategy="afterInteractive">
+          {`
                 {
                   "@context": "https://schema.org",
                   "@type": "LocalBusiness",
@@ -85,8 +96,7 @@ export default function RootLayout({
                   ]
                 }
                 `}
-          </Script>
-        </Head>
+        </Script>
 
         <Script
           id="gtm-head"
