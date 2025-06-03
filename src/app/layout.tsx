@@ -157,17 +157,26 @@ export default function RootLayout({
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="#" className="hover:text-blue-500 transition-colors">
+                  <a
+                    href="/services"
+                    className="hover:text-blue-500 transition-colors"
+                  >
                     Web Development
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-blue-500 transition-colors">
+                  <a
+                    href="/services"
+                    className="hover:text-blue-500 transition-colors"
+                  >
                     SEO Optimization
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-blue-500 transition-colors">
+                  <a
+                    href="/services"
+                    className="hover:text-blue-500 transition-colors"
+                  >
                     Digital Advertising
                   </a>
                 </li>
